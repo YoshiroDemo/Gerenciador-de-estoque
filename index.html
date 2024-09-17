@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Estoque</h1>
+
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'estoque')" id="defaultTab">Estoque</button>
+            <button class="tablink" onclick="openTab(event, 'fornecedores')">Fornecedores</button>
+            <button class="tablink" onclick="openTab(event, 'reabastecimento')">Solicitações de Reabastecimento</button>
+            <button class="tablink" onclick="openTab(event, 'historico')">Histórico de Movimentação</button>
+            <button class="tablink" onclick="openTab(event, 'pedidos')">Pedidos de Compra</button>
+            <button class="tablink" onclick="openTab(event, 'relatorios')">Relatórios</button>
+        </div>
+
+        <!-- Estoque -->
+        <div id="estoque" class="tabcontent">
+            <h2>Estoque Atual</h2>
+            <form id="produto-form">
+                <label for="nome">Nome do Produto:</label>
+                <input type="text" id="nome" required>
+
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" required>
+
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" required>
+
+                <button type="submit">Adicionar Produto</button>
+            </form>
+
+            <table id="tabela-estoque">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Produtos vão aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Fornecedores -->
+        <div id="fornecedores" class="tabcontent">
+            <h2>Gerenciamento de Fornecedores</h2>
+            <form id="fornecedor-form">
+                <label for="nome-fornecedor">Nome do Fornecedor:</label>
+                <input type="text" id="nome-fornecedor" required>
+
+                <label for="contato-fornecedor">Contato:</label>
+                <input type="text" id="contato-fornecedor" required>
+
+                <button type="submit">Adicionar Fornecedor</button>
+            </form>
+
+            <table id="tabela-fornecedores">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Contato</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fornecedores vão aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Solicitações de Reabastecimento -->
+        <div id="reabastecimento" class="tabcontent">
+            <h2>Solicitações de Reabastecimento</h2>
+            <form id="reabastecimento-form">
+                <label for="produto-reabastecimento">Produto:</label>
+                <input type="text" id="produto-reabastecimento" required>
+
+                <label for="quantidade-reabastecimento">Quantidade:</label>
+                <input type="number" id="quantidade-reabastecimento" required>
+
+                <button type="submit">Solicitar Reabastecimento</button>
+            </form>
+
+            <table id="tabela-reabastecimento">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Solicitações vão aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Histórico de Movimentação -->
+        <div id="historico" class="tabcontent">
+            <h2>Histórico de Movimentação</h2>
+            <table id="tabela-historico">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Movimentação</th>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Histórico vai aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pedidos de Compra -->
+        <div id="pedidos" class="tabcontent">
+            <h2>Pedidos de Compra</h2>
+            <form id="pedido-form">
+                <label for="produto-pedido">Produto:</label>
+                <input type="text" id="produto-pedido" required>
+
+                <label for="quantidade-pedido">Quantidade:</label>
+                <input type="number" id="quantidade-pedido" required>
+
+                <label for="fornecedor-pedido">Fornecedor:</label>
+                <input type="text" id="fornecedor-pedido" required>
+
+                <button type="submit">Fazer Pedido</button>
+            </form>
+
+            <table id="tabela-pedidos">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Fornecedor</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Pedidos vão aqui -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Relatórios Simples -->
+        <div id="relatorios" class="tabcontent">
+            <h2>Relatórios Simples</h2>
+            <button onclick="gerarRelatorio()">Gerar Relatório de Estoque</button>
+            <div id="relatorio-content">
+                <!-- Relatório será gerado aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
